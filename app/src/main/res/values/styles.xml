@@ -1,0 +1,37 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- colors -->
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorSecondary">@color/white_background</item>
+        <item name="colorSecondaryVariant">@color/white_background</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">@color/dark_background</item>
+        <item name="android:colorBackground">@color/white_background</item>
+        <item name="colorOnBackground">#212121</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">#111111</item>
+    </style>
+
+    <style name="AppThemeNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- colors -->
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorSecondary">@color/white_background</item>
+        <item name="colorSecondaryVariant">@color/white_background</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">@color/dark_background</item>
+        <item name="android:colorBackground">@color/white_background</item>
+        <item name="colorOnBackground">#212121</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>
