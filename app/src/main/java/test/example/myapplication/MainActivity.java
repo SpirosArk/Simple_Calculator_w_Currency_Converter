@@ -13,12 +13,18 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+
 public class MainActivity extends AppCompatActivity {
 
     EditText e1, e2;
     Double num1, num2;
 
     TextView tnum1, tnum2, tresult;
+
 
     private static Double convert(String from, String to, String amount) {
         try {
@@ -48,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Spinner spinner_currency=findViewById(R.id.spinner_currency);
+        ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this, R.array.currency, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner_currency.setAdapter(adapter);
+        String state = spinner_currency.getSelectedItem().toString();
+
 
         // defining the edit text 1 to e1
         e1 = (EditText) findViewById(R.id.num1);
@@ -136,25 +149,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // a public method to manage the API conversion, by Default we consider our Result to have Base Eur
-    public void doUSD(View v) {
+    public void doConvert(View v) {
+        //String state = spinner_currency.getSelectedItem().toString();
         // run callout to new thread because android does not allow net callouts on UI thread
         new Thread(() -> {
-            tresult.setText(Double.toString(convert("EUR", "USD", tresult.getText().toString())));
+
+            Spinner spinner = (Spinner)findViewById(R.id.spinner_currency);
+            String choice = spinner.getSelectedItem().toString();
+
+            tresult.setText(Double.toString(convert("EUR", choice, tresult.getText().toString())));
         }).start();
     }
 
-    public void doAUD(View v) {
-
-        new Thread(() -> {
-            tresult.setText(Double.toString(convert("EUR", "AUD", tresult.getText().toString())));
-        }).start();
-    }
-
-    public void doGBP(View v) {
-
-        new Thread(() -> {
-            tresult.setText(Double.toString(convert("EUR", "GBP", tresult.getText().toString())));
-        }).start();
-    }
 
 }
