@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
             Request request = new Request.Builder()
                     .url(String.format("https://api.apilayer.com/fixer/convert?to=%s&from=%s&amount=%s", to, from, amount))
-                    .addHeader("apikey", "50Bb7BIiunxZgna164TLpI1qquifjhsk")
+                    .addHeader("apikey", "SUBSCRIBE AND ENTER YOUR API HERE")
                     .method("GET", null)
                     .build();
             Response response = client.newCall(request).execute();
