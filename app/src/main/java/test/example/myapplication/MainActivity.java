@@ -20,10 +20,10 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText e1, e2;
-    Double num1, num2;
+    EditText firstInputEditText, secondInputEditText;
+    Double firstInputNumericValue, secondInputNumericValue;
 
-    TextView tnum1, tnum2, tresult;
+    TextView firstInputShow, secondInputShow, resultShow;
 
 
     private static Double convert(String from, String to, String amount) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner spinner_currency=findViewById(R.id.spinner_currency);
+        Spinner spinner_currency=findViewById(R.id.currencySelectorSpinner);
         ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this, R.array.currency, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner_currency.setAdapter(adapter);
@@ -63,22 +63,22 @@ public class MainActivity extends AppCompatActivity {
 
 
         // defining the edit text 1 to e1
-        e1 = (EditText) findViewById(R.id.num1);
+        firstInputEditText = (EditText) findViewById(R.id.firstInput);
         // defining the edit text 2 to e2
-        e2 = (EditText) findViewById(R.id.num2);
+        secondInputEditText = (EditText) findViewById(R.id.secondInput);
 
-        tnum1 = (TextView) findViewById(R.id.num1);
-        tnum2 = (TextView) findViewById(R.id.num2);
-        tresult = (TextView) findViewById(R.id.result);
+        firstInputShow = (TextView) findViewById(R.id.firstInput);
+        secondInputShow = (TextView) findViewById(R.id.secondInput);
+        resultShow = (TextView) findViewById(R.id.resultOutput);
     }
 
     // a public method to get the input numbers
     public boolean getNumbers() {
         // taking input from text box 1
-        String s1 = e1.getText().toString();
+        String s1 = firstInputEditText.getText().toString();
 
         // taking input from text box 2
-        String s2 = e2.getText().toString();
+        String s2 = secondInputEditText.getText().toString();
 
         // condition to check if box is not empty
         if (s1.isEmpty() || s2.isEmpty()) {
@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             try {
                 // converting string to int.
-                num1 = Double.parseDouble(s1);
+                firstInputNumericValue = Double.parseDouble(s1);
                 // converting string to int.
-                num2 = Double.parseDouble(s2);
+                secondInputNumericValue = Double.parseDouble(s2);
             } catch (Exception e) {
                 Toast.makeText(this, "Only numbers are acceptable characters", Toast.LENGTH_SHORT).show();
                 return false;
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
         // get the input numbers
         if (getNumbers()) {
-            Double sum = num1 + num2;
-            tresult.setText(Double.toString(sum));
+            Double sum = firstInputNumericValue + secondInputNumericValue;
+            resultShow.setText(Double.toString(sum));
         }
     }
 
@@ -114,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
         // get the input numbers
         if (getNumbers()) {
-            Double sum = num1 - num2;
-            tresult.setText(Double.toString(sum));
+            Double sum = firstInputNumericValue - secondInputNumericValue;
+            resultShow.setText(Double.toString(sum));
         }
     }
 
@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
         // get the input numbers
         if (getNumbers()) {
-            Double sum = num1 * num2;
-            tresult.setText(Double.toString(sum));
+            Double sum = firstInputNumericValue * secondInputNumericValue;
+            resultShow.setText(Double.toString(sum));
         }
     }
 
@@ -136,16 +136,16 @@ public class MainActivity extends AppCompatActivity {
         if (getNumbers()) {
 
             // displaying the text in text view assigned as tresult
-            double sum = num1 / (num2 * 1.0);
-            tresult.setText(Double.toString(sum));
+            double sum = firstInputNumericValue / (secondInputNumericValue * 1.0);
+            resultShow.setText(Double.toString(sum));
         }
     }
 
     // a public method to have a Clear All Button
     public void doClear(View v) {
-        tnum1.setText(null);
-        tnum2.setText(null);
-        tresult.setText(null);
+        firstInputShow.setText(null);
+        secondInputShow.setText(null);
+        resultShow.setText(null);
     }
 
     // a public method to manage the API conversion, by Default we consider our Result to have Base Eur
@@ -154,10 +154,10 @@ public class MainActivity extends AppCompatActivity {
         // run callout to new thread because android does not allow net callouts on UI thread
         new Thread(() -> {
 
-            Spinner spinner = (Spinner)findViewById(R.id.spinner_currency);
+            Spinner spinner = (Spinner)findViewById(R.id.currencySelectorSpinner);
             String choice = spinner.getSelectedItem().toString();
 
-            tresult.setText(Double.toString(convert("EUR", choice, tresult.getText().toString())));
+            resultShow.setText(Double.toString(convert("EUR", choice, resultShow.getText().toString())));
         }).start();
     }
 

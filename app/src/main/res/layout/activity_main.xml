@@ -23,45 +23,45 @@
     <!-- A button to perform multiplication. -->
 
     <Button
-        android:id="@+id/sum"
+        android:id="@+id/additionButton"
         android:layout_width="75dp"
         android:layout_height="57dp"
         android:layout_marginBottom="376dp"
         android:onClick="doSum"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sub"
+        app:layout_constraintEnd_toStartOf="@+id/subtractionButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/sub"
+        android:id="@+id/subtractionButton"
         android:layout_width="75dp"
         android:layout_height="57dp"
         android:layout_marginBottom="376dp"
         android:onClick="doSub"
         android:text="-"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mul"
+        app:layout_constraintEnd_toStartOf="@+id/multiplyButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/sum"
-        app:layout_constraintTop_toTopOf="@+id/sum" />
+        app:layout_constraintStart_toEndOf="@+id/additionButton"
+        app:layout_constraintTop_toTopOf="@+id/additionButton" />
 
     <Button
-        android:id="@+id/mul"
+        android:id="@+id/multiplyButton"
         android:layout_width="75dp"
         android:layout_height="57dp"
         android:layout_marginBottom="376dp"
         android:onClick="doMul"
         android:text="*"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/div"
+        app:layout_constraintEnd_toStartOf="@+id/divideButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/sub"
-        app:layout_constraintTop_toTopOf="@+id/sub" />
+        app:layout_constraintStart_toEndOf="@+id/subtractionButton"
+        app:layout_constraintTop_toTopOf="@+id/subtractionButton" />
 
     <Button
-        android:id="@+id/div"
+        android:id="@+id/divideButton"
         android:layout_width="75dp"
         android:layout_height="57dp"
         android:layout_marginBottom="376dp"
@@ -70,13 +70,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mul"
-        app:layout_constraintTop_toTopOf="@+id/mul" />
+        app:layout_constraintStart_toEndOf="@+id/multiplyButton"
+        app:layout_constraintTop_toTopOf="@+id/multiplyButton" />
 
     <Button
-        android:id="@+id/api"
+        android:id="@+id/convertButton"
         android:layout_width="140dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="312dp"
         android:onClick="doConvert"
         android:text="Convert"
@@ -87,9 +87,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Clear"
+        android:id="@+id/clearAllButton"
         android:layout_width="140dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="252dp"
         android:onClick="doClear"
         android:text="Clear All"
@@ -99,7 +99,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/num1"
+        android:id="@+id/firstInput"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="155dp"
         android:layout_height="91dp"
@@ -109,12 +109,12 @@
         android:inputType="number|text"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/num2"
+        app:layout_constraintEnd_toStartOf="@+id/secondInput"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/num2"
+        android:id="@+id/secondInput"
         android:layout_width="155dp"
         android:layout_height="91dp"
         android:layout_marginBottom="455dp"
@@ -125,25 +125,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/num1" />
+        app:layout_constraintStart_toEndOf="@+id/firstInput" />
 
     <!-- A button to Clear All Inputs simultaneously. -->
 
     <!-- A button to manage the API -->
 
     <Spinner
-        android:id="@+id/spinner_currency"
+        android:id="@+id/currencySelectorSpinner"
         android:layout_width="140dp"
-        android:layout_height="44dp"
+        android:contentDescription="Currency Selection Spinner"
+        android:layout_height="48dp"
         android:layout_marginBottom="312dp"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/api" />
+        app:layout_constraintStart_toEndOf="@+id/convertButton" />
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/resultOutput"
         android:layout_width="301dp"
         android:layout_height="89dp"
         android:hint="Result (Eur)"
