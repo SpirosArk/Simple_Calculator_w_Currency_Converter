@@ -1,5 +1,5 @@
 # Simple_Calculator_w_Currency_Converter
-Simple calculator implemented with fixer.io in order for the Result to be able to be converted at USD, GBP and AUD
+Calculator implemented with fixer.io supporting currency conversion at USD, GBP and AUD
 
 I developed that project because I was asked during a job interview process.
 This is my first ever solo android project so If you find any mistakes regarding appearance or coding itself, feel free to inform me.
